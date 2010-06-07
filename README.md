@@ -12,6 +12,8 @@ Grace Framework is licensed under the [Apache 2.0 Open Source License](http://ww
 
 ## Installation and Setup
 
+__NOTE: Downloads not yet available__
+
 Unzip `grace-<version>.zip` to your servlet context root - if you have existing configuration in 
 WEB-INF/web.xml or WEB-INF/appengine-web.xml, you will need to hand merge those files.  Configuration 
 is pretty simple - you will need to add the following to web.xml:
@@ -44,9 +46,8 @@ must be included in the WEB-INF/lib directory of your servlet application along 
 
 A Grace application's JavaScript source is located in `<context-root>/grace`.  In this directory, you will find
 `app.js`, which serves as the entry point to your application.  The Grace Framework its self is located
-in `grace/framework`, so don't touch the contents of that directory unless you know what you're doing!  
-Scripts are also auto-loaded, in order, from the following directories (if present - these directories
-are not required):
+in `grace/framework`, so don't touch the contents of that directory unless you know what you're doing!  Scripts are 
+also auto-loaded, in order, from the following directories (if present - these directories are not required):
 
 * grace/lib
 * grace/helpers
