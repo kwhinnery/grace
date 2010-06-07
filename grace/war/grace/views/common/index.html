@@ -1,0 +1,17 @@
+<html>
+<head>
+	::common/head::
+</head>
+<body>
+	<h1>Hello world!</h1>
+	<ul>
+		<% for (var i = 0; i < 5; i++) { %>
+		<li><%= foo %></li>
+		<% } %>
+	</ul>
+	<p>
+		here's another: <%= foo %>.
+	</p>
+	::common/include::
+</body>
+</html>

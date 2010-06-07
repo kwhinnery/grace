@@ -1,0 +1,44 @@
+package com.grace;
+
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
+import org.mozilla.javascript.ScriptableObject;
+
+@SuppressWarnings("serial")
+public class JavaScriptServlet extends ScriptableObject {
+	private HttpServletResponse resp;
+	private HttpServletRequest req;
+
+	public JavaScriptServlet() {}
+
+	@Override
+	public String getClassName() {
+		return "com.grace.JavaScriptServlet";
+	}
+
+	public HttpServletRequest getReq() {
+		return req;
+	}
+
+	public HttpServletResponse getResp() {
+		return resp;
+	}
+
+	public HttpServletRequest jsFunction_getRequest() {
+		return this.getReq();
+	}
+	
+	public HttpServletResponse jsFunction_getResponse() {
+		return this.getResp();
+	}
+
+	public void setReq(HttpServletRequest req) {
+		this.req = req;
+	}
+	
+	public void setResp(HttpServletResponse resp) {
+		this.resp = resp;
+	}
+
+}

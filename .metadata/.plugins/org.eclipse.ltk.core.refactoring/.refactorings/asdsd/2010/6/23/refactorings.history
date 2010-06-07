@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Copy 1 elements(s) to &apos;lib&apos;&#x0A;- Original project: &apos;asdsd&apos;&#x0A;- Destination element: &apos;lib&apos;&#x0A;- Original element: &apos;datanucleus-appengine-1.0.7.final.jar&apos;" description="Copy file" element1="war/WEB-INF/lib/datanucleus-appengine-1.0.7.final.jar" files="1" flags="589830" folders="0" id="org.eclipse.jdt.ui.copy" policy="org.eclipse.jdt.ui.copyResources" stamp="1275424459661" target="/grace/war/WEB-INF/lib" units="0" version="1.0"/>
+</session>

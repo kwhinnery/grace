@@ -1,0 +1,76 @@
+package com.grace;
+
+import java.io.FileReader;
+import java.io.IOException;
+
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
+import org.mozilla.javascript.Context;
+import org.mozilla.javascript.Scriptable;
+import org.mozilla.javascript.ScriptableObject;
+
+@SuppressWarnings("serial")
+public class GraceServlet extends HttpServlet {
+	private Scriptable sharedScope = null;
+	
+	public void doPost(HttpServletRequest req, HttpServletResponse resp) throws IOException {
+
+		// Creates and enters a Context. The Context stores information
+		// about the execution environment of a script.
+		Context cx = Context.enter();
+		try {
+			// Initialize the standard objects (Object, Function, etc.)
+            // This must be done before scripts can be executed. Returns
+            // a scope object that we use in later calls.
+			if (this.sharedScope == null) {
+				sharedScope = cx.initStandardObjects();
+			}
+			
+			//duplicate shared scope to avoid initialization on every request
+			Scriptable newScope = cx.newObject(sharedScope);
+		    newScope.setPrototype(sharedScope);
+		    newScope.setParentScope(null);
+		    
+		    //Place a response object into scope to read in parameters
+		    ScriptableObject.defineClass(newScope, JavaScriptServlet.class);
+            JavaScriptServlet jsServ = (JavaScriptServlet) cx.newObject(newScope, "com.grace.JavaScriptServlet");
+            jsServ.setReq(req);
+            jsServ.setResp(resp);
+            jsServ.setJavaScriptContext(cx);
+            jsServ.setJavaScriptScope(newScope);
+            ScriptableObject.putProperty(newScope, "servlet", jsServ);
+
+		    //Load and evaluate in the application
+            FileReader reader = new FileReader("grace/framework/bootstrap.js");
+            Object result = cx.evaluateReader(newScope, reader, "<cmd>", 1, null);
+            JavaScriptServlet serv = (JavaScriptServlet) Context.jsToJava(result, JavaScriptServlet.class);
+            
+            //Grace Framework JS code is responsible for dealing with the req/resp
+            req = serv.getReq();
+            resp = serv.getResp();
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			// Exit from the context.
+			Context.exit();
+		}
+	}
+	
+	public void doGet(HttpServletRequest req, HttpServletResponse resp) throws IOException {
+		this.doPost(req, resp);
+	}
+	
+	public void doPut(HttpServletRequest req, HttpServletResponse resp) throws IOException {
+		this.doPost(req, resp);
+	}
+	
+	public void doDelete(HttpServletRequest req, HttpServletResponse resp) throws IOException {
+		this.doPost(req, resp);
+	}
+	
+	public void doHead(HttpServletRequest req, HttpServletResponse resp) throws IOException {
+		this.doPost(req, resp);
+	}
+}

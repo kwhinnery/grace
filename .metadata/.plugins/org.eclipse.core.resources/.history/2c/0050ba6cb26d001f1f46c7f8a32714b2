@@ -1,0 +1,73 @@
+package com.grace;
+
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
+import org.mozilla.javascript.Context;
+import org.mozilla.javascript.Scriptable;
+import org.mozilla.javascript.ScriptableObject;
+
+/**
+ * The JavaScriptServlet object contains the execution context for the script -
+ * This consists of an HttpServletRequest/Response, as well as the current JS
+ * execution context.
+ */
+@SuppressWarnings("serial")
+public class JavaScriptServlet extends ScriptableObject {
+	private HttpServletResponse resp;
+	private HttpServletRequest req;
+	private Context javaScriptContext;
+	private Scriptable javaScriptScope;
+
+	public JavaScriptServlet() {}
+
+	@Override
+	public String getClassName() {
+		return "com.grace.JavaScriptServlet";
+	}
+
+	public Context getJavaScriptContext() {
+		return javaScriptContext;
+	}
+
+	public Scriptable getJavaScriptScope() {
+		return javaScriptScope;
+	}
+
+	public HttpServletRequest getReq() {
+		return req;
+	}
+
+	public HttpServletResponse getResp() {
+		return resp;
+	}
+	
+	public void jsFunction_load(String path) {
+		
+	}
+
+	public HttpServletRequest jsFunction_getRequest() {
+		return this.getReq();
+	}
+
+	public HttpServletResponse jsFunction_getResponse() {
+		return this.getResp();
+	}
+
+	public void setJavaScriptContext(Context javaScriptContext) {
+		this.javaScriptContext = javaScriptContext;
+	}
+	
+	public void setJavaScriptScope(Scriptable javaScriptScope) {
+		this.javaScriptScope = javaScriptScope;
+	}
+
+	public void setReq(HttpServletRequest req) {
+		this.req = req;
+	}
+	
+	public void setResp(HttpServletResponse resp) {
+		this.resp = resp;
+	}
+
+}

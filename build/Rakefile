@@ -1,0 +1,30 @@
+require 'rake'
+require 'pathname'
+require 'find'
+require 'zip/zip'
+require 'yaml'
+require 'fileutils'
+require 'spec/rake/spectask'
+
+BUILD_DIR = File.join(ROOT_DIR, 'build')
+STAGE_DIR = File.join(ROOT_DIR, 'stage')
+TEST_DIR = File.join(BUILD_DIR, 'test')
+CONFIG = YAML::load_file(File.join(BUILD_DIR, 'config.yml'))
+GRACE_VERSION = CONFIG[:name]+"-"+CONFIG[:version]
+
+puts "Grace Framework (v" + CONFIG[:version] + ")"
+
+# Should run RSpec tests by default
+task :default => [:spec] do
+end
+
+desc "Run RSpec Tests for Grace"
+Spec::Rake::SpecTask.new(:spec) do |t|
+  t.spec_files = FileList[TEST_DIR+'/*.rb']
+  t.spec_opts << '--format specdoc'
+end
+
+desc "Build a .zip distribution package for Grace"
+task :package do
+  puts "Packaging for distribution..."
+end
