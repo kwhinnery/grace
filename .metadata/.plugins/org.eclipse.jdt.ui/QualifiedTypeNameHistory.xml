@@ -1,14 +1,17 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <qualifiedTypeNameHistroy>
-<fullyQualifiedTypeName name="org.mozilla.javascript.Scriptable"/>
-<fullyQualifiedTypeName name="org.mozilla.javascript.Context"/>
 <fullyQualifiedTypeName name="com.google.apphosting.utils.remoteapi.RemoteApiPb.Response"/>
 <fullyQualifiedTypeName name="javax.servlet.http.HttpServletResponse"/>
 <fullyQualifiedTypeName name="java.io.File"/>
 <fullyQualifiedTypeName name="java.util.logging.Logger"/>
 <fullyQualifiedTypeName name="org.mozilla.javascript.ScriptableObject"/>
 <fullyQualifiedTypeName name="java.util.Map"/>
-<fullyQualifiedTypeName name="java.util.HashMap"/>
 <fullyQualifiedTypeName name="java.util.Iterator"/>
 <fullyQualifiedTypeName name="javax.servlet.http.HttpServletRequest"/>
+<fullyQualifiedTypeName name="org.mozilla.javascript.Context"/>
+<fullyQualifiedTypeName name="org.mozilla.javascript.Scriptable"/>
+<fullyQualifiedTypeName name="org.mozilla.javascript.Script"/>
+<fullyQualifiedTypeName name="com.google.appengine.api.users.User"/>
+<fullyQualifiedTypeName name="com.google.appengine.api.users.UserService"/>
+<fullyQualifiedTypeName name="java.util.HashMap"/>
 </qualifiedTypeNameHistroy>

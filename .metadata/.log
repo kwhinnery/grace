@@ -669,3 +669,46 @@ org.eclipse.core.runtime.CoreException: The fix 'Add type arguments to 'HashMap'
 	at org.eclipse.equinox.launcher.Main.run(Main.java:1311)
 !SUBENTRY 1 org.eclipse.jdt.ui 4 0 2010-06-01 16:34:45.217
 !MESSAGE The fix 'Add type arguments to 'HashMap'' generated a null change.
+!SESSION 2010-06-09 12:26:35.184 -----------------------------------------------
+eclipse.buildId=unknown
+java.version=1.6.0_20
+java.vendor=Apple Inc.
+BootLoader constants: OS=macosx, ARCH=x86, WS=cocoa, NL=en_US
+Framework arguments:  -product org.eclipse.epp.package.java.product -keyring /Users/kevin/.eclipse_keyring -showlocation
+Command-line arguments:  -os macosx -ws cocoa -arch x86 -product org.eclipse.epp.package.java.product -keyring /Users/kevin/.eclipse_keyring -showlocation
+
+!ENTRY org.eclipse.core.net 1 0 2010-06-09 12:26:55.865
+!MESSAGE System property http.nonProxyHosts has been set to local|*.local|169.254/16|*.169.254/16 by an external source. This value will be overwritten using the values from the preferences
+
+!ENTRY com.google.appengine.eclipse.core 1 0 2010-06-09 12:29:08.119
+!MESSAGE grace successfully deployed to Google App Engine
+!SESSION 2010-06-10 00:24:17.161 -----------------------------------------------
+eclipse.buildId=unknown
+java.version=1.6.0_20
+java.vendor=Apple Inc.
+BootLoader constants: OS=macosx, ARCH=x86, WS=cocoa, NL=en_US
+Framework arguments:  -product org.eclipse.epp.package.java.product -keyring /Users/kevin/.eclipse_keyring -showlocation
+Command-line arguments:  -os macosx -ws cocoa -arch x86 -product org.eclipse.epp.package.java.product -keyring /Users/kevin/.eclipse_keyring -showlocation
+
+!ENTRY org.eclipse.core.net 1 0 2010-06-10 00:24:25.613
+!MESSAGE System property http.nonProxyHosts has been set to local|*.local|169.254/16|*.169.254/16 by an external source. This value will be overwritten using the values from the preferences
+!SESSION 2010-06-11 15:02:59.129 -----------------------------------------------
+eclipse.buildId=unknown
+java.version=1.6.0_20
+java.vendor=Apple Inc.
+BootLoader constants: OS=macosx, ARCH=x86, WS=cocoa, NL=en_US
+Framework arguments:  -product org.eclipse.epp.package.java.product -keyring /Users/kevin/.eclipse_keyring -showlocation
+Command-line arguments:  -os macosx -ws cocoa -arch x86 -product org.eclipse.epp.package.java.product -keyring /Users/kevin/.eclipse_keyring -showlocation
+
+!ENTRY org.eclipse.core.net 1 0 2010-06-11 15:03:19.022
+!MESSAGE System property http.nonProxyHosts has been set to local|*.local|169.254/16|*.169.254/16 by an external source. This value will be overwritten using the values from the preferences
+!SESSION 2010-06-18 15:49:10.469 -----------------------------------------------
+eclipse.buildId=unknown
+java.version=1.6.0_20
+java.vendor=Apple Inc.
+BootLoader constants: OS=macosx, ARCH=x86, WS=cocoa, NL=en_US
+Framework arguments:  -product org.eclipse.epp.package.java.product -keyring /Users/kevin/.eclipse_keyring -showlocation
+Command-line arguments:  -os macosx -ws cocoa -arch x86 -product org.eclipse.epp.package.java.product -keyring /Users/kevin/.eclipse_keyring -showlocation
+
+!ENTRY org.eclipse.core.net 1 0 2010-06-18 15:49:33.476
+!MESSAGE System property http.nonProxyHosts has been set to local|*.local|169.254/16|*.169.254/16 by an external source. This value will be overwritten using the values from the preferences

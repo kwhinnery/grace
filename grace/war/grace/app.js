@@ -59,3 +59,11 @@ grace.resource("/url/:id/params/:bar", {
     grace.render("post:"+params.id+":"+params.bar);
   }
 });
+
+//Test templating with no layout
+grace.resource("/template/:id", function(params) {
+  grace.render({id:params.id}, {
+    layout:"",
+    template:"test/test"
+  });
+});

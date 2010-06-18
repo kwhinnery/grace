@@ -7,7 +7,7 @@ CONFIG = YAML::load_file(File.expand_path(File.dirname(__FILE__))+'/../config.ym
 app = CONFIG[:spec_endpoint]
 agent = Mechanize.new
 
-describe "Grace Framework: Routing and Rendering" do
+describe "Test Suite: Routing and Rendering" do
   it "responds with proper content, content type, and status code" do
     page = agent.get(app+"/respond")
     page.response["Content-Type"].should == "text/plain; charset=utf-8"
@@ -68,5 +68,11 @@ describe "Grace Framework: Routing and Rendering" do
     
     page = agent.post(src2)
     page.body.should == "post:scooby:doo"
+  end
+  
+  it "renders a template with no layout" do
+    page = agent.get("#{app}/template/13")
+    page.search("#header").first.content.should == "26"
+    page.search("p").first.content.should == "13"
   end
 end

@@ -15,7 +15,14 @@
   // ---------------------
   grace.extend(grace,{
     //store the request content type
-    responseFormat:"",
+    fourOhFour: function(log) {
+      grace.warning(log);
+      grace.respond(grace.read("static/404.html"),"text/html",404);
+    },
+    fiveHundred: function(log) {
+      grace.severe(log);
+      grace.respond(grace.read("static/500.html"),"text/html",500);
+    },
     //register a handler or handlers for a given resource or regular expression
     resource: function(pathOrRegExp,handler) {
       grace.info("calling grace.resource...");
@@ -86,9 +93,7 @@
       });
       
       if (match == null) {
-        grace.warning("grace.doRoute: 404 for route "+uri);
-        //respond with 404
-        grace.respond(com.grace.Utilities.readFileAsString("static/404.html"),"text/html",404);
+        grace.fourOhFour("grace.doRoute: 404 for route "+uri);
       }
       else {
         var ok = false;
@@ -110,16 +115,23 @@
           if (servlet.getRequest().getParameter("_method")) {
             method = String(servlet.getRequest().getParameter("_method"));
           }
-          match.methods[method].call(this,parameters);
-          //request was processed successfully at this point by a handler
+          
+          //Ensure we have a handler for this HTTP method
+          if (match.methods[method] == undefined) {
+            grace.fourOhFour("HTTP Method '"+method+"' is undefined for URI '"+uri+"'");
+          }
+          else {
+            match.methods[method].call(this,parameters);
+          }
+          
+          //request was processed successfully at this point
           ok = true;
         } 
         finally {
           //executing in a finally block to preserve the stack trace of the exception in the logs
           if (!ok) {
             //BWAHH!  500 error...
-            grace.respond(grace.read("static/500.html"),"text/html",500);
-            grace.severe("Fatal error from request handler: "+match.matcher);
+            grace.fiveHundred("Fatal error from request handler: "+match.matcher);
           }
         }
       }

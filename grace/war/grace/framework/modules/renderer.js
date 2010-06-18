@@ -10,21 +10,24 @@
     };
     
     //look for content for our yield
-    var tokens = tpl.match(/::[^\s].*[^\s]::/g);
+    var replacementRegex = /::[^\s].*[^\s]::/g;
+    var tokens = tpl.match(replacementRegex);
     
     //If we have any content to replace in a layout, let's capture them
-    for (var i = 0; i < tokens.length; i++) {
-      var tkn = tokens[i];
-      var idx = tpl.indexOf(tkn);
-      if (i == 0) {
-        replacements.main = tpl.substring(0,idx);
-      }
-      //Grab the appropriate substring to replace in a layout
-      if (i+1 == tokens.length) {
-        replacements[tokens[i].replace(/:/g,"")] = tpl.substring(idx+tkn.length);
-      }
-      else {
-        replacements[tokens[i].replace(/:/g,"")] = tpl.substring(idx+tkn.length,tpl.indexOf(tokens[i+1]));
+    if (tokens) {
+      for (var i = 0; i < tokens.length; i++) {
+        var tkn = tokens[i];
+        var idx = tpl.indexOf(tkn);
+        if (i == 0) {
+          replacements.main = tpl.substring(0,idx);
+        }
+        //Grab the appropriate substring to replace in a layout
+        if (i+1 == tokens.length) {
+          replacements[tokens[i].replace(/:/g,"")] = tpl.substring(idx+tkn.length);
+        }
+        else {
+          replacements[tokens[i].replace(/:/g,"")] = tpl.substring(idx+tkn.length,tpl.indexOf(tokens[i+1]));
+        }
       }
     }
     
@@ -35,7 +38,8 @@
       grace.each(replacements,function(value,key) {
         layoutTemplate = layoutTemplate.replace("::"+key+"::",value);
       });
-      finalTemplate = layoutTemplate;
+      //replace any unused ::*:: placeholders
+      finalTemplate = layoutTemplate.replace(replacementRegex,"");
     }
     
     //finally, render our template

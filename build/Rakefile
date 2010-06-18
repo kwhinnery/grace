@@ -12,7 +12,9 @@ TEST_DIR = File.join(BUILD_DIR, 'test')
 CONFIG = YAML::load_file(File.join(BUILD_DIR, 'config.yml'))
 GRACE_VERSION = CONFIG[:name]+"-"+CONFIG[:version]
 
-puts "Grace Framework (v" + CONFIG[:version] + ")"
+puts ""
+puts "Grace Framework (v #{CONFIG[:version]})"
+puts "****************************"
 
 # Should run RSpec tests by default
 task :default => [:spec] do

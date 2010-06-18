@@ -11,11 +11,18 @@
 		<item value="0" key="DIALOG_Y_ORIGIN"/>
 		<item value="0" key="DIALOG_X_ORIGIN"/>
 	</section>
+	<section name="InstallationDialogSettings">
+		<item value="702" key="DIALOG_WIDTH"/>
+		<item value="-231" key="DIALOG_Y_ORIGIN"/>
+		<item value="654" key="DIALOG_HEIGHT"/>
+		<item value="-84" key="DIALOG_X_ORIGIN"/>
+		<item value="1|Lucida Grande|11.0|0|COCOA|1|LucidaGrande" key="DIALOG_FONT_NAME"/>
+	</section>
 	<section name="FileExtensionDialogSettings">
 		<item value="525" key="DIALOG_WIDTH"/>
 		<item value="22" key="DIALOG_Y_ORIGIN"/>
-		<item value="53" key="DIALOG_X_ORIGIN"/>
 		<item value="222" key="DIALOG_HEIGHT"/>
+		<item value="53" key="DIALOG_X_ORIGIN"/>
 		<item value="1|Lucida Grande|11.0|0|COCOA|1|LucidaGrande" key="DIALOG_FONT_NAME"/>
 	</section>
 	<section name="EditorSelectionDialog">
