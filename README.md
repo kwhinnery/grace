@@ -1,7 +1,7 @@
 # Grace Framework
 
 Grace is a lightweight, RESTful web application framework for Java and JavaScript.
-By embedding the powerful [Rhino](http://www.mozilla.org/rhino/) JavaScript engine for the JVM,
+By embedding the [Rhino](http://www.mozilla.org/rhino/) JavaScript engine for the JVM,
 Grace Framework implements a JavaScript web application framework inspired by great projects like
 [Ruby on Rails](http://www.rubyonrails.org) and [Sinatra](http://www.sinatrarb.com).  Rhino also
 allows JavaScript developers to script actual Java classes, so they can take advantage of all the
